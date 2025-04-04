@@ -1,3 +1,23 @@
+This simplified implementation demonstrates the key components of an LLM and how they work together during text generation. Here's a breakdown of the main parts:
+
+1.  **Tokenization**: Converting input text to token IDs (greatly simplified in this example)
+2.  **Embedding Layer**: Converting token IDs to high-dimensional vectors
+3.  **Positional Encoding**: Adding position information to the embeddings
+4.  **Transformer Blocks**: The core architecture with:
+    -   Multi-head attention mechanism
+    -   Feed-forward neural network
+    -   Residual connections and layer normalization
+5.  **Output Layer**: Converting hidden states back to vocabulary logits
+6.  **Text Generation**: Autoregressive token generation with sampling
+7.  **Speculative Decoding**: A separate class showing how to speed up generation by predicting multiple tokens at once
+
+This code is intentionally simplified for clarity and wouldn't produce meaningful text without training. In real LLMs:
+
+1.  The tokenization would use subword algorithms like BPE or SentencePiece
+2.  Models would have many more layers (32-80+) and much larger embedding dimensions (4096-8192+)
+3.  Various optimizations would be applied for memory efficiency and speed
+4.  Advanced attention patterns might be used (e.g., grouped-query attention, sliding window)
+
 Let's say our input is the simple question: "What is machine learning?"
 
 1\. Tokenization
@@ -115,23 +135,3 @@ For our input "What is machine learning?", here's how tokens might be generated:
 "Machine learning is a subfield of artificial intelligence that gives computers the ability to learn from data without being explicitly programmed..."
 
 Each step involves matrix multiplications, attention calculations, and non-linear transformations across thousands of dimensions, making this a computationally intensive process---but highly optimized in modern implementations.
-
-This simplified implementation demonstrates the key components of an LLM and how they work together during text generation. Here's a breakdown of the main parts:
-
-1.  **Tokenization**: Converting input text to token IDs (greatly simplified in this example)
-2.  **Embedding Layer**: Converting token IDs to high-dimensional vectors
-3.  **Positional Encoding**: Adding position information to the embeddings
-4.  **Transformer Blocks**: The core architecture with:
-    -   Multi-head attention mechanism
-    -   Feed-forward neural network
-    -   Residual connections and layer normalization
-5.  **Output Layer**: Converting hidden states back to vocabulary logits
-6.  **Text Generation**: Autoregressive token generation with sampling
-7.  **Speculative Decoding**: A separate class showing how to speed up generation by predicting multiple tokens at once
-
-This code is intentionally simplified for clarity and wouldn't produce meaningful text without training. In real LLMs:
-
-1.  The tokenization would use subword algorithms like BPE or SentencePiece
-2.  Models would have many more layers (32-80+) and much larger embedding dimensions (4096-8192+)
-3.  Various optimizations would be applied for memory efficiency and speed
-4.  Advanced attention patterns might be used (e.g., grouped-query attention, sliding window)
